@@ -1,9 +1,10 @@
-
+#If the device is on at the starting, switch it off(not required now,as written the same in exit part)
+#dev.off()
 #1.Download the file using the URL and store it in a zip file in the directory
-download.file("https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip", dest= "Household_Power_Consumption.zip")
+#download.file("https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip", dest= "Household_Power_Consumption.zip")
 
 #2. Unzip the downloaded file
-unzip("Household_Power_Consumption.zip")
+#unzip("Household_Power_Consumption.zip")
 
 #3.Parse the file and read it as csv, limit the number of rows as per the requirement
 file<-read.csv("Household_Power_Consumption.txt",header=T, sep=';', na.strings="?", 
@@ -221,3 +222,6 @@ for(i in RFileNames)
         # Call the DrawAllPlots function for each file name in the collection
         DrawAllPlots(i)
 }
+
+# Make the device off on exit
+on.exit(dev.off())
